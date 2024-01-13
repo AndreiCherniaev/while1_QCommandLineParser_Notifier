@@ -6,9 +6,9 @@
 
 ConsoleReader::ConsoleReader(QObject *parent) :
     QObject(parent),
-    notifier(STDIN_FILENO, QSocketNotifier::Read, this)
+    notifier(new QSocketNotifier(STDIN_FILENO, QSocketNotifier::Read, this))
 {
-    connect(&notifier, SIGNAL(activated(int)), this, SLOT(text()));
+    connect(notifier, SIGNAL(activated(int)), this, SLOT(text()));
 }
 
 void ConsoleReader::text()
