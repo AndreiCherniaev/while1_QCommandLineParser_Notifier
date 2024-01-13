@@ -9,7 +9,7 @@ class ConsoleReader : public QObject
 public:
     explicit ConsoleReader(QObject *parent = nullptr);
 signals:
-    void textReceived(QString message);
+    void textReceived(const QString message);
 public slots:
     void text();
 private:
