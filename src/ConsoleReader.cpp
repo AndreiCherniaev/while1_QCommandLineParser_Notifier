@@ -13,14 +13,14 @@ ConsoleReader::ConsoleReader(QObject *parent) :
 
 void ConsoleReader::text()
 {
-    //main way
+    /*//second way
     QTextStream qin(stdin);
     QString line = qin.readLine();
-    emit textReceived(line);
+    emit textReceived(line);*/
 
-    /*//second way
+    //main way
 //https://stackoverflow.com/questions/6878507/using-qsocketnotifier-to-select-on-a-char-device/7389622#comment71257508_7389622
     std::string line;
     std::getline(std::cin,line);
-    emit textReceived(QString::fromStdString(line));*/
+    emit textReceived(QString::fromStdString(line));
 }
