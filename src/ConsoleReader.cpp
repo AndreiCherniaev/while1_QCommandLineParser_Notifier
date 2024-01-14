@@ -8,10 +8,10 @@ ConsoleReader::ConsoleReader(QObject *parent) :
     QObject(parent),
     notifier(new QSocketNotifier(STDIN_FILENO, QSocketNotifier::Read, this))
 {
-    connect(notifier, SIGNAL(activated(int)), this, SLOT(text()));
+    connect(notifier, &QSocketNotifier::activated, this, &ConsoleReader::text);
 }
 
-void ConsoleReader::text()
+void ConsoleReader::text(QSocketDescriptor d, QSocketNotifier::Type t)
 {
     /*//second way
     QTextStream qin(stdin);

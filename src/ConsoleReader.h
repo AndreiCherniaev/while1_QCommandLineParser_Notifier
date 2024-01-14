@@ -11,7 +11,7 @@ public:
 signals:
     void textReceived(const QString message);
 public slots:
-    void text();
+    void text(QSocketDescriptor d, QSocketNotifier::Type t);
 private:
     QSocketNotifier *notifier;
 };
