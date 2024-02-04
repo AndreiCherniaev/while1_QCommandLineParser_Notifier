@@ -1,4 +1,4 @@
-# QThread-with-moveToThread_console
+# QSocketNotifier example
  Qt example how make multi-thread console app.
  Use cmake build system.
 
@@ -9,4 +9,5 @@
     <em>Иллюстрация иерархии в Qt</em>
 </p>
 
-See [also](https://www.toptal.com/qt/qt-multithreading-c-plus-plus).
+About QThread [see](https://www.toptal.com/qt/qt-multithreading-c-plus-plus)
+See another [example](https://gist.github.com/gjorquera/2576569).
