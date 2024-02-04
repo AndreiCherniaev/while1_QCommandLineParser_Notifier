@@ -9,5 +9,10 @@
     <em>Иллюстрация иерархии в Qt</em>
 </p>
 
-About QThread [see](https://www.toptal.com/qt/qt-multithreading-c-plus-plus)
-See another [example](https://gist.github.com/gjorquera/2576569).
+About QThread [see](https://www.toptal.com/qt/qt-multithreading-c-plus-plus)  
+See another [example](https://gist.github.com/gjorquera/2576569) .
+See also threads 
+https://stackoverflow.com/questions/23164492/how-can-i-detect-if-there-is-input-waiting-on-stdin-on-windows/23164552#23164552
+https://stackoverflow.com/questions/36861177/how-to-get-qiodevice-like-signals-for-console-input-stdin
+https://stackoverflow.com/questions/37880061/qt-console-press-enter-to-exit?noredirect=1&lq=1
+https://stackoverflow.com/questions/6878507/using-qsocketnotifier-to-select-on-a-char-device/7389622#7389622
