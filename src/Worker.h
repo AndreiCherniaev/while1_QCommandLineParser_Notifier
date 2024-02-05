@@ -3,7 +3,8 @@
 #include <QObject>
 #include <QCoreApplication>
 #include <QCommandLineParser>
-#include "ConsoleReader.h"
+#include "qconsolelistener.h"
+
 class Worker : public QObject
 {
     Q_OBJECT

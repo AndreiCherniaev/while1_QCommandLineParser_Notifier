@@ -1,6 +1,6 @@
 //https://stackoverflow.com/questions/6878507/using-qsocketnotifier-to-select-on-a-char-device/7389622#7389622
-#include "ConsoleReader.h"
-#include <QTextStream>
+#include "qconsolelistener.h"
+//#include <QTextStream> //for QTextStream way only
 #include <iostream>
 #include <unistd.h> //Provides STDIN_FILENO
 
@@ -13,7 +13,7 @@ QConsoleListener::QConsoleListener(QObject *parent) :
 
 void QConsoleListener::text(QSocketDescriptor d, QSocketNotifier::Type t)
 {
-    /*//second way
+    /*//QTextStream way
     QTextStream qin(stdin);
     QString line = qin.readLine();
     emit textReceived(line);*/
