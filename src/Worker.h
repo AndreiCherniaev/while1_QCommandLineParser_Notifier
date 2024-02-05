@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QObject>
-#include <QCommandLineParser>
 #include "qconsolelistener.h"
 
 class Worker : public QObject
@@ -9,8 +8,9 @@ class Worker : public QObject
     Q_OBJECT
 
     QString m_message;
-    int count;  //счётчик, по которому можно сомотреть сколько итераций уже произошло в ните в её while(1)
+    int count;  //счётчик, по которому можно смотреть сколько итераций уже произошло в ните в её while(1)
     QConsoleListener reader;
+
 public:
     explicit Worker(QObject *parent = 0);
     ~Worker();

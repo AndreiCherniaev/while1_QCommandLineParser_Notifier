@@ -1,6 +1,7 @@
 #include <QThread>
 #include <QDebug>
 #include <QCoreApplication>
+#include <QCommandLineParser>
 #include "Worker.h"
 
 Worker::Worker(QObject *parent) :
