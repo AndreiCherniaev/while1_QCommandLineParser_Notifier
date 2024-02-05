@@ -7,7 +7,7 @@ Worker::Worker(QObject *parent) :
     m_message("")
 {
     qDebug() << "Worker::Worker";
-    connect(&reader, &ConsoleReader::finishedGetLine, this, &Worker::textReceivedCallback);
+    connect(&reader, &QConsoleListener::finishedGetLine, this, &Worker::textReceivedCallback);
     /*
     By the way, one extremely important thing to note here is that you should NEVER allocate heap objects (using new) in the
     constructor of the QObject class as this allocation is then performed on the main thread and not on the new QThread instance,

@@ -14,7 +14,7 @@ qt_add_executable(${PROJECT_NAME}
   Worker.cpp Worker.h
   MainClass.cpp MainClass.h
   main.cpp
-  ConsoleReader.h ConsoleReader.cpp
+  qconsolelistener.h qconsolelistener.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC Qt::Core)

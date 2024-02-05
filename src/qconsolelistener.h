@@ -3,11 +3,11 @@
 #include <QObject>
 #include <QSocketNotifier>
 
-class ConsoleReader : public QObject
+class QConsoleListener : public QObject
 {
     Q_OBJECT
 public:
-    explicit ConsoleReader(QObject *parent = nullptr);
+    explicit QConsoleListener(QObject *parent = nullptr);
 signals:
     void finishedGetLine(const QString message);
 public slots:

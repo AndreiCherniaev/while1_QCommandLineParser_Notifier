@@ -4,14 +4,14 @@
 #include <iostream>
 #include <unistd.h> //Provides STDIN_FILENO
 
-ConsoleReader::ConsoleReader(QObject *parent) :
+QConsoleListener::QConsoleListener(QObject *parent) :
     QObject(parent),
     m_notifier(new QSocketNotifier(STDIN_FILENO, QSocketNotifier::Read, this))
 {
-    connect(m_notifier, &QSocketNotifier::activated, this, &ConsoleReader::text);
+    connect(m_notifier, &QSocketNotifier::activated, this, &QConsoleListener::text);
 }
 
-void ConsoleReader::text(QSocketDescriptor d, QSocketNotifier::Type t)
+void QConsoleListener::text(QSocketDescriptor d, QSocketNotifier::Type t)
 {
     /*//second way
     QTextStream qin(stdin);
