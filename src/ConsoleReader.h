@@ -9,9 +9,9 @@ class ConsoleReader : public QObject
 public:
     explicit ConsoleReader(QObject *parent = nullptr);
 signals:
-    void textReceived(const QString message);
+    void finishedGetLine(const QString message);
 public slots:
     void text(QSocketDescriptor d, QSocketNotifier::Type t);
 private:
-    QSocketNotifier *notifier;
+    QSocketNotifier *m_notifier;
 };
