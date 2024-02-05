@@ -1,15 +1,12 @@
 #pragma once
 
 #include <QObject>
-#include <QCoreApplication>
 #include <QCommandLineParser>
 #include "qconsolelistener.h"
 
 class Worker : public QObject
 {
     Q_OBJECT
-    //Сообщение в объекте worker
-    Q_PROPERTY(QString message READ message WRITE setMessage NOTIFY messageChanged)
 
     QString m_message;
     int count;  //счётчик, по которому можно сомотреть сколько итераций уже произошло в ните в её while(1)

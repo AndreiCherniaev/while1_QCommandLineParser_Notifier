@@ -1,6 +1,7 @@
-#include "Worker.h"
-#include "qthread.h"
+#include <QThread>
 #include <QDebug>
+#include <QCoreApplication>
+#include "Worker.h"
 
 Worker::Worker(QObject *parent) :
     QObject(parent),
