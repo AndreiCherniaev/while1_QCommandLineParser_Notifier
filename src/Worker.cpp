@@ -50,15 +50,9 @@ void Worker::run()
     while(1)
     {
         QCoreApplication::processEvents();
-        if (QThread::currentThread()->isInterruptionRequested()){
+        if(QThread::currentThread()->isInterruptionRequested()){
             goto exit_LABEL;
         }
-        //If noCheck==true then no way to send wrong CMD,
-        //else user can send CMD with wrong values
-        bool noCheck= false;
-        bool cmd_correct= true;
-       /*QTextStream(stdout)<< "# ";
-        QTextStream qin(stdin);*/
 
         count++;
         emit sendMessage(m_message); //высылаем данные, которые будут передаваться в другой поток

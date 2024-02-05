@@ -1,15 +1,15 @@
 #include "MainClass.h"
 #include <QCoreApplication>
 
+MainClass *MainClass::rialSelf;
+
 MainClass::MainClass(QObject *parent) :
     QObject(parent)
-  , worker(new Worker()) //родителя нет, ибо "The object cannot be moved if it has a parent."
-  , thread(new QThread(this)) //родитель есть (не обязательно)
+    ,worker(new Worker()) //родителя нет, ибо "The object cannot be moved if it has a parent."
+    ,thread(new QThread(this)) //родитель есть (не обязательно)
 {
     qDebug() << "MainWindow::MainWindow";
-
-    connect(&timer, &QTimer::timeout, this, &MainClass::handleSignal);
-    //timer.start(1000);
+    MainClass::setSignalHandlerObject(this);
 
     //Старт метода run() будет осуществляться по сигналу запуска от соответствующей нити
     connect(thread.get(), &QThread::started, worker.get(), &Worker::run);
@@ -40,8 +40,8 @@ MainClass::~MainClass()
 
 
 //Обработчик случая Ctrl+C
-void MainClass::handleSignal(){
-    qDebug()<<"Welcome to Signal handled: " << 123;
+void MainClass::handleSignal(const int num){
+    qDebug()<<"Welcome to Signal handled: " << num;
     //Остановка нитей через завершение выполнения метода run в объекте worker
     thread->requestInterruption(); //worker->setRunning(false);
     qDebug()<<"requestInterruption";

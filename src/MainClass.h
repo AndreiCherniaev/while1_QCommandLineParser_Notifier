@@ -1,6 +1,5 @@
 #pragma once
 
-#include <QTimer>
 #include <QThread>
 #include "Worker.h"
 
@@ -8,13 +7,24 @@ class MainClass : public QObject
 {
     Q_OBJECT
 
-    QTimer timer;
-public:    
+public:
+    //Дело в том, что в обработчик сигнала от Unix можно повесить только на static метод класса,
+    //но мне очень захотелось повесить обработчик на non-static метод, поэтому здесь используется трюк с указателем
+    //кстати обратите внимание на Rial *Rial::rialSelf; -это тоже часть этого трюка
+    //https://stackoverflow.com/questions/54467652/how-to-set-sa-handlerint-pointer-to-function-which-is-member-of-a-class-i
+    static MainClass* rialSelf;
+    void handleSignal(const int num);
+    static void setSignalHandlerObject(MainClass* newRealSelf) {
+        MainClass::rialSelf= newRealSelf;
+    }
+    static void callSignalHandler(int num){ //num is number of handler, in case of SIGINT (Ctrl+C) it is 2
+        rialSelf->handleSignal(num);
+    }
+
     explicit MainClass(QObject *parent = 0);
     ~MainClass();
 
 private slots:
-    void handleSignal();
     void mycallback(QStringView message);
 
 public slots:
