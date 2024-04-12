@@ -8,7 +8,7 @@ Worker::Worker(QObject *parent) :
     QObject(parent),
     m_message("")
 {
-    qDebug() << "Worker::Worker";
+    qDebug() << "Worker::Worker is waiting 'c' command";
     connect(&reader, &QConsoleListener::finishedGetLine, this, &Worker::textReceivedCallback);
     /*
     By the way, one extremely important thing to note here is that you should NEVER allocate heap objects (using new) in the
